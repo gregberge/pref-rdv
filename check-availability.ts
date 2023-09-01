@@ -60,16 +60,20 @@ const plannings = [
   const page = await browser.newPage();
 
   for (const planning of plannings) {
+    console.log("Checking", planning.label);
     const hasAvailability = await checkHasAvailability(page, planning.id);
+
     if (hasAvailability) {
       console.log("Availability found for", planning.label);
       await sendSMS(`Availability found for ${planning.label}`);
       console.log("SMS sent");
       break;
     }
+
+    console.log("No availability for", planning.label);
   }
 
-  console.log("No availability");
+  console.log("No availability on any planning");
 
   // Teardown
   await browser.close();
