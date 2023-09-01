@@ -5,14 +5,14 @@ on:
     - cron: "*/10 * * * *" # Every 10 minutes
 
 jobs:
-  stale:
+  check-availabilities:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: "node"
-      - run: ts-node check-availability.ts
+      - run: npm exec ts-node check-availability.ts
         env:
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
