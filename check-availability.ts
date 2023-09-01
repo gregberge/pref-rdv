@@ -54,9 +54,7 @@ const plannings = [
 
 (async () => {
   // Setup
-  const browser = await chromium.launch({
-    headless: false,
-  });
+  const browser = await chromium.launch();
   const page = await browser.newPage();
 
   for (const planning of plannings) {

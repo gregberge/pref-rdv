@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: "node"
       - run: npm ci
+      - run: npx playwright install --with-deps chromium
       - run: npm exec ts-node check-availability.ts
         env:
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
