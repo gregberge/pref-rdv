@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "dependencies": {
+    "playwright": "^1.37.1",
+    "ts-node": "^10.9.1",
+    "twilio": "^4.16.0"
+  }
+}
